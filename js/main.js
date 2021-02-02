@@ -1,137 +1,125 @@
-
-// Clases de los personajes: 
+//Clase de los jugadores
 class Luchador {
 
-    constructor (nombre, vida, fuerza, defensa, suerte, velocidad){
-        this.nombre = nombre; 
-        this.vida = vida; 
-        this.fuerza = fuerza; 
+    constructor(nombre, vida, fuerza, defensa, suerte){
+        this.nombre = nombre;
+        this.vida = vida;
+        this.fuerza = fuerza;
         this.defensa = defensa;
         this.suerte = suerte; 
-        this.velocidad = velocidad;
-    }; 
+        this.handicap = suerte - Math.floor(Math.random() * 5);
+    };
 
     ataque(enemigo){
-        enemigo.vida -= (this.fuerza - enemigo.defensa);  
-    }; 
+        enemigo.vida -= (this.fuerza - enemigo.defensa) * (this.suerte - this.handicap); 
+    };
 
     ataqueEspecial(enemigo){
-        
+        enemigo.vida -= (this.fuerza * 0.5 + this.fuerza) - enemigo.defensa;
     };
 
     defensa(){
 
     };
-
 };
 
 console.log(Luchador); 
 
 
-//Instancias y construcción de objetos (personajes)
-let player1 = new Luchador ("Mia", 300, 60, 30, 40, 20);
-let player2 = new Luchador ("Jules", 300, 50, 40, 20, 30);
-let player3 = new Luchador ("Jackie", 300, 45, 35, 10, 15); 
-let player4 = new Luchador ("Hans", 300, 50, 35, 20, 15); 
-let player5 = new Luchador ("Django", 300, 55, 40, 15, 20);
-let player6 = new Luchador ("Mamba", 300, 40, 30, 20, 10);
+//Instancias y variables globales
+let player1 = new Luchador("Jules", 200, 60, 30, 8);
+let player2 = new Luchador("Mamba", 200, 50, 40, 8);
+let player3 = new Luchador("Hans", 200, 55, 35, 7); 
+let player4 = new Luchador("Mia", 200, 50, 30, 8); 
+let player5 = new Luchador("Django", 200, 60, 30, 9); 
+let player6 = new Luchador("Jackie", 200, 45, 40, 6); 
 
-let p1 = "";
+let p1 = ""; 
 let p2 = ""; 
 
-console.log(player1, player2, player3, player4, player5, player6);
+console.log(player1, player2, player3, player4, player5, player6); 
 
-//Las funciones del juego
-let selectJugador = (personaje) => {
+
+//Funciones del juego
+let inicioGame = () => {
+
+    let vidaInicial = 200; 
+
+    player1.vida = vidaInicial;
+    player2.vida = vidaInicial;
+
+}; 
+
+
+let selectPersonaje = (personaje) => {
     if(p1 == ""){
-        p1 = personaje;
+        p1 = personaje; 
 
-        document.getElementById(personaje).className = "jugadorElegido"; 
-        document.getElementById(personaje).onclick = "";
+        document.getElementById(personaje).className = "avatar2"; 
+        document.getElementById(personaje).onclick = ""; 
 
-    } else {
+    }else{
         p2 = personaje; 
 
-        document.getElementById(personaje).className = "jugadorElegido"; 
-        document.getElementById(personaje).onclick = "";
-
-        //Mensaje de selección
-
+        document.getElementById(personaje).className = "avatar2"; 
+        document.getElementById(personaje).onclick = ""; 
+        
+        //Mensaje
         let mensaje = document.getElementById("mensaje");
 
-        mensaje.innerHTML = `Has escogido al primer personaje, ${p1}, y al segundo, ${p2}`;
+        mensaje.innerHTML = `Has escogido al primer personaje que es ${p1} y al segundo que es ${p2}`; 
 
-        //Pasar los players al screen2 
-        let showPlayer1 = document.getElementById("enemigo1"); 
-        let showPlayer2 = document.getElementById("enemigo2"); 
+        //Cargar personas a Screen2
+        let showPlayer1 = document.getElementById("contrincante1");
+        let showPlayer2 = document.getElementById("contrincante2"); 
 
-        showPlayer1.innerHTML = `<div><img class="estiloEnemigo" src="img/${p1}.jpg"></div>`;
-        showPlayer2.innerHTML = `<div><img class="estiloEnemigo" src="img/${p2}.jpg"></div>`;
+        showPlayer1.innerHTML = `<div><img class="estiloContrincante" src="img/${p1}.jpg"></div>`;  
+        showPlayer2.innerHTML = `<div><img class="estiloContrincante" src="img/${p2}.jpg"></div>`; 
 
-        console.log(showPlayer1.innerHTML);
+        //Cambio de pantalla (los personajes ya están cargados), después de esta función se define la función de cambio de pantalla y la función de promesa
+        resolveIn(3000).then(delay => {
 
-        //Cambiar screen
-
-        resolveIn(2000).then(delay => {
-            cambiaPantalla("pantalla1", "pantalla2");
+            cambiaPantalla("screen1", "screen2");
 
         });
     };
-}; 
+};
 
+        //Función de Delay para el cambio de pantalla (promise)
+const resolveIn = delay => 
+new Promise(res => setTimeout(() => res(delay), delay)); 
+
+        //Función de cambio de pantalla llamada en la función de selectPersonaje
+let cambiaPantalla = (faseAhora, faseFutura) => {
+    let pantallaActual = document.getElementById(faseAhora);
+    let pantallaDestino = document.getElementById(faseFutura); 
+
+    pantallaActual.style.display = "none"; 
+    pantallaDestino.style.display = "block";
+};    
+
+        //Función de ataque
 let atacar = () => {
-
-    //Turno de ataque
+        //turno
     let turno = Math.floor(Math.random() * 2); 
     let especial = Math.floor(Math.random() * 5); 
 
-    if (turno == 0) {
-        if(especial == 3) {
+    if(turno == 0){
+        if(especial == 3){
             console.log("Ataque Especial"); 
             player1.ataqueEspecial(player2);
         }else{
-
             player1.ataque(player2);
         }
     }else{
         if(especial == 3){
-            console.log("Ataque Especial"); 
+            console.log("Ataque Especial");
             player2.ataqueEspecial(player1);
         }else{
             player2.ataque(player1);
         }
     };
 
-    console.log("Vida 1: + player1.vida"); 
-    console.log("Vida 2: + player2.vida");
-
+    console.log("Vida 1: " + player1.vida);
+    console.log("Vida 2: " + player2.vida);
 }; 
-
-let Inicio = () => {
-    let vidaInicial = 200; 
-
-    player1.vida = vidaInicial;
-    player2.vida = vidaInicial;
-
-    p1 = "";
-    p2 = ""; 
-}; 
-
-let cambiaPantalla = (fase1, fase2) => {
-    let pantallaActual = document.getElementById(fase1);
-    let pantallaDestino = document.getElementById(fase2); 
-
-    //cambio de pantalla
-
-    pantallaActual.style.display = "none"; 
-    pantallaDestino.style.display = "block"; 
-}; 
-
-//Declaración de Inicio del juego
-console.log("Iniciamos el juego y la vida del player 1 es..." + player1.vida); 
-console.log("Iniciamos el juego y la vida del player 2 es..." + player2.vida);
-
-//Funcion Delay
-const resolveIn = delay => new Promise(res => setTimeout(() => res(delay), delay)); 
-
-

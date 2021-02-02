@@ -6,46 +6,40 @@
     <title>Document</title>
 
     <link href="css/style.css" rel="stylesheet">
-
 </head>
 <body>
+    
+    <div class="general">
 
-
-    <div class="contenedorGeneral">
-
-        <div id="pantalla1" class="screen1" style="display:block">
-            <div class="personaje">
-                <div onclick="selectJugador('Mia')" id="Mia"><img class="jugador" src="img/mia.jpg"></div>
-                <div onclick="selectJugador('Jules')" id="Jules"><img class="jugador" src="img/samuel-art.jpg"></div>
-                <div onclick="selectJugador('Jackie')" id="Jackie"><img class="jugador" src="img/jackiebrown.jpg"></div>
-                <div onclick="selectJugador('Hans')" id="Hans"><img class="jugador" src="img/hans-art.jpg"></div>
-                <div onclick="selectJugador('Django')" id="Django"><img class="jugador" src="img/django-art.jpg"></div>
-                <div onclick="selectJugador('Mamba')" id="Mamba"><img class="jugador" src="img/killbill-art.jpg"></div>
-
-                <!--Aqui va el mensaje de selección de los personajes-->
-
+        <div id="screen1" class="pantalla1" style="display:block">
+            <div class="characters">
+                <div onclick="selectPersonaje('Jules')" id="Jules"><img class="avatar" src="img/Jules.jpg"></div>
+                <div onclick="selectPersonaje('Mamba')" id="Mamba"><img class="avatar" src="img/killbill.jpg"></div>
+                <div onclick="selectPersonaje('Hans')" id="Hans"><img class="avatar" src="img/Hans.jpg"></div>
+                <div onclick="selectPersonaje('Mia')" id="Mia"><img class="avatar" src="img/mia.jpg"></div>
+                <div onclick="selectPersonaje('Django')" id="Django"><img class="avatar" src="img/django.jpg"></div>
+                <div onclick="selectPersonaje('Jackie')" id="Jackie"><img class="avatar" src="img/jackiebrown.jpg"></div>
             </div>
 
             <div id="mensaje"></div>
+
         </div>
 
-
-        <div id="pantalla2" class="screen2" style="display:none">
-
-            <div class="jugadoresCombate">
-                <div id="enemigo1"></div>
-                <div id="enemigo2"></div>
+        <div id="screen2" class="pantalla2" style="display: none;">
+            
+            <div class="luchadoresCombate">
+                <div id="contrincante1"></div>
+                <div id="contrincante2"></div>
             </div>
-
+            
             <div class="botonPegar">
-                <div id="golpe" class="ataque" onclick="atacar()"></div>
+                <div id="strike" class="attack" onclick="atacar()"></div>
             </div>
-        </div>
 
+        </div>
 
     </div>
 
     <script src="js/main.js"></script>
-
 </body>
 </html>

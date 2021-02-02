@@ -1,63 +1,63 @@
 body {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(29, 1, 1);
+    background-color: cadetblue;
 }
 
-.contenedorGeneral {
+.general {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(29, 1, 1);
+
 }
 
-/*Problema a la hora de ajustar div al 100% de la pantalla y display block */
-
-.personaje {
+.pantalla1 {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-}
-
-.jugador {
-    width: 15em;
-    height: 15em;   
-}
-
-.jugadorElegido {
-    filter: grayscale(0.75);
-}
-
-#pantalla1 {
-    background-color: black;
-}
-
-.jugadoresCombate {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
 }
 
-.estiloEnemigo {
+.characters {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar {
     width: 15em;
     height: 15em;
 }
 
-.botonPegar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10em;
+.avatar2 {
+    filter: grayscale(0.7);
 }
-.ataque {
-    height: 5em;
-    width: 5em;
-    background-color: blanchedalmond;
-}
+
 #mensaje {
-    color: cornsilk;
-    font-size: 2em;
-    margin-top: 5em;
+    color: rgb(15, 2, 2);
+    font-size: 4em;
+    margin-top: 3em;
+}
+
+.luchadoresCombate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.estiloContrincante {
+    width: 20em;
+    height: 20em;
+}
+
+.botonPegar {
+    height: 8em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.attack {
+    height: 6em;
+    width: 6em;
+
+    background-color: chartreuse;
 }
