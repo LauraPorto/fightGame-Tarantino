@@ -1,18 +1,23 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(29, 1, 1);
+}
+
 .contenedorGeneral {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    height: 40em;
+    background-color: rgb(29, 1, 1);
 }
+
 /*Problema a la hora de ajustar div al 100% de la pantalla y display block */
 
-.personajes {
+.personaje {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .jugador {
@@ -20,10 +25,39 @@
     height: 15em;   
 }
 
-.screen1 {
-    background-color: rgb(29, 1, 1);
-  
+.jugadorElegido {
+    filter: grayscale(0.75);
 }
 
+#pantalla1 {
+    background-color: black;
+}
 
+.jugadoresCombate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
+.estiloEnemigo {
+    width: 15em;
+    height: 15em;
+}
+
+.botonPegar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10em;
+}
+.ataque {
+    height: 5em;
+    width: 5em;
+    background-color: blanchedalmond;
+}
+#mensaje {
+    color: cornsilk;
+    font-size: 2em;
+    margin-top: 5em;
+}

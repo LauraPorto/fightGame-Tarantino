@@ -9,10 +9,12 @@
 
 </head>
 <body>
+
+
     <div class="contenedorGeneral">
 
         <div id="pantalla1" class="screen1" style="display:block">
-            <div class="personajes">
+            <div class="personaje">
                 <div onclick="selectJugador('Mia')" id="Mia"><img class="jugador" src="img/mia.jpg"></div>
                 <div onclick="selectJugador('Jules')" id="Jules"><img class="jugador" src="img/samuel-art.jpg"></div>
                 <div onclick="selectJugador('Jackie')" id="Jackie"><img class="jugador" src="img/jackiebrown.jpg"></div>
@@ -24,9 +26,11 @@
 
             </div>
 
-
+            <div id="mensaje"></div>
         </div>
-        <div id="pantalla2" class="screen2" style="display: none">
+
+
+        <div id="pantalla2" class="screen2" style="display:none">
 
             <div class="jugadoresCombate">
                 <div id="enemigo1"></div>
@@ -36,8 +40,6 @@
             <div class="botonPegar">
                 <div id="golpe" class="ataque" onclick="atacar()"></div>
             </div>
-
-
         </div>
 
 
