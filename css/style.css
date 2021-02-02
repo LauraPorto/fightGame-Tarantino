@@ -1,0 +1,29 @@
+.contenedorGeneral {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40em;
+}
+/*Problema a la hora de ajustar div al 100% de la pantalla y display block */
+
+.personajes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.jugador {
+    width: 15em;
+    height: 15em;   
+}
+
+.screen1 {
+    background-color: rgb(29, 1, 1);
+  
+}
+
+
+
