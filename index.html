@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Juego de Lucha</title>
 
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     
     <div class="general">
-
-        <div id="screen1" class="pantalla1" style="display:block">
-            <div class="characters">
-                <div onclick="selectPersonaje('Jules')" id="Jules"><img class="avatar" src="img/Jules.jpg"></div>
-                <div onclick="selectPersonaje('Mamba')" id="Mamba"><img class="avatar" src="img/killbill.jpg"></div>
-                <div onclick="selectPersonaje('Hans')" id="Hans"><img class="avatar" src="img/Hans.jpg"></div>
-                <div onclick="selectPersonaje('Mia')" id="Mia"><img class="avatar" src="img/mia.jpg"></div>
-                <div onclick="selectPersonaje('Django')" id="Django"><img class="avatar" src="img/django.jpg"></div>
-                <div onclick="selectPersonaje('Jackie')" id="Jackie"><img class="avatar" src="img/jackiebrown.jpg"></div>
+        <div id="screen1" class="pantalla1" style="display: block;">
+            <div class="jugadores">
+                <div onclick="seleccionJugador('Mia')" id="Mia" class="jugador"><img src="img/mia.jpg" class="fotoJugador"></div>
+                <div onclick="seleccionJugador('Jules')" id="Jules" class="jugador"><img src="img/jules.jpg" class="fotoJugador"></div>
+                <div onclick="seleccionJugador('Jackie')" id="Jackie" class="jugador"><img src="img/jackie.jpg" class="fotoJugador"></div>
+                <div onclick="seleccionJugador('Hans')" id="Hans" class="jugador"><img src="img/hans.jpg" class="fotoJugador"></div>
+                <div onclick="seleccionJugador('Mamba')" id="Mamba" class="jugador"><img src="img/mamba.jpg" class="fotoJugador"></div>
+                <div onclick="seleccionJugador('Django')" id="Django" class="jugador"><img class="fotoJugador" src="img/django.jpg" ></div>
             </div>
 
-            <div id="mensaje"></div>
-
+            <div id="mensajeScreen1"></div>
         </div>
 
-        <div id="screen2" class="pantalla2" style="display: none;">
-            
-            <div class="luchadoresCombate">
+        <div id="screen2" class="pantalla2" style="display:none;">
+            <div class="contenedorContrincantes">
                 <div id="contrincante1"></div>
                 <div id="contrincante2"></div>
             </div>
-            
-            <div class="botonPegar">
-                <div id="strike" class="attack" onclick="atacar()"></div>
+            <div class="ataque">
+                <div id="golpe" class="botonAtaque" onclick="atacar()"></div>
             </div>
+            
 
         </div>
-
     </div>
 
     <script src="js/main.js"></script>
