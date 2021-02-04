@@ -2,14 +2,34 @@ body {
     background: cadetblue;
 
 }
-/*
+
 .general {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-*/
+
+.screenIntro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.introJuego {
+    width: 20em;
+    height: 20em;
+
+    background-color: brown;
+}
+
+.start {
+    width: 10em;
+    height: 10em;
+
+    background-color: burlywood;
+}
 
 
 .jugadores {
@@ -22,9 +42,30 @@ body {
 .fotoJugador {
     height: 14em;
     width: 12em;
-
+/*
     border: 0.3em solid black;
-    
+ */   
+}
+
+.jugador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 12em;
+    height: 30em;
+
+
+}
+.info {
+    width: 12em;
+    height: 16em;
+    opacity: 0;
+}
+.fotoJugador:hover + .info{
+    background-color: cyan;
+    opacity: 1;
 }
 
 /* Una vez elegidos los jugadores */
