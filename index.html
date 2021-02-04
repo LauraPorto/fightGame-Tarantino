@@ -14,7 +14,7 @@
         <div id="screenIntro" class="pantallaIntro" style="display: block;">
             <div class="introJuego"></div>
             <div class="introJuego2">
-                <div onclick="cambiaScreen('screenIntro', 'screen1')" class="start"></div>
+                <div onclick="cambiaScreen('screenIntro', 'screen1')", class="start"></div>
             </div>
         </div>
 
@@ -22,7 +22,14 @@
         <div id="screen1" class="pantalla1" style="display: none">
             <div class="jugadores">
                 <div onclick="seleccionJugador('Mia')" id="Mia" class="jugador"><img src="img/mia.jpg" class="fotoJugador">
-                    <div class="info">Esto es la info de los jugadores</div></div>
+                    <div class="info">
+                        <ul>
+                            <li>Fuerza : </li>
+                            <li>Defensa : </li>
+                            <li>Suerte : </li>
+                            <li>Arma : </li>
+                        </ul>
+                    </div></div>
 
                 <div onclick="seleccionJugador('Jules')" id="Jules" class="jugador"><img src="img/jules.jpg" class="fotoJugador">
                     <div class="info">
@@ -80,11 +87,19 @@
                 <div id="contrincante2"></div>
             </div>
             <div class="ataque">
-                <div onclick="atacar()" id="golpe" class="botonAtaque"></div>
+                <div onclick= "atacar()" id="golpe" class="botonAtaque"></div>
             </div>
             
-
         </div>
+
+        <div class="screen3" class="pantalla3" style="display: none;">
+            <div class="contenedorVictoria">
+                <div id="mensajeScreen3"></div>
+                <div id="winner"></div>
+            </div>
+        </div>
+
+
     </div>
 
     <script src="js/main.js"></script>

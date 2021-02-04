@@ -11,29 +11,26 @@ class Jugadores {
     };
 
     ataque(enemigo){
-        enemigo.vida -= (this.fuerza - enemigo.defensa); 
+        enemigo.vida -= (this.fuerza - enemigo.defensa) * (enemigo.arma - this.suerte);
     };
 
     defensa(enemigo){
-        
+        this.vida -= enemigo.fuerza + (enemigo.arma * 0.5)
     };
 
     ataqueEspecial(enemigo){
-
+        enemigo.vida -= (this.fuerza * 0.5 + this.arma) - (enemigo.defensa - this.arma);
     };
 };
 
 
 
-let player1 = new Jugadores("Mia", 200, 50, 20, 30, 8); 
-let player2 = new Jugadores("Jules", 200, 60, 30, 30, 6); 
-let player3 = new Jugadores("Jackie", 200, 45, 25, 30, 9); 
-let player4 = new Jugadores("Hans", 200, 40, 20, 35, 7); 
-let player5 = new Jugadores("Mamba", 200, 55, 20, 27, 8); 
-let player6 = new Jugadores("Django", 200, 60, 20, 31, 9); 
-
-let team1 = "";
-let team2 = "";
+let player1 = new Jugadores("Mia", 250, 58, 20, 5, 9); 
+let player2 = new Jugadores("Jules", 250, 60, 30, 6, 9); 
+let player3 = new Jugadores("Jackie", 250, 65, 25, 4, 9); 
+let player4 = new Jugadores("Hans", 250, 55, 28, 6, 7); 
+let player5 = new Jugadores("Mamba", 250, 60, 32, 5, 7); 
+let player6 = new Jugadores("Django", 250, 56, 29, 4, 8); 
 
 
 let allplayers = {
@@ -46,23 +43,38 @@ let allplayers = {
 };
 
 
+let team1 = "";
+let team2 = "";
+
+
+
 //Funciones para el juego
 let atacar = () => {
     let turno = Math.floor(Math.random() * 5);
+    let especial = Math.floor(Math.random () * 5); 
 
     if (turno == 0){
-
-        team2.ataque(team1);
-        console.log("Ataque a Team 1 !");
+        if(especial == 3){
+            console.log("ATAQUE ESPECIAL CON ARMA!"); 
+            team1.ataqueEspecial(team2);
+        }else{
+            console.log("Ataque a Team 2 !");
+            team1.ataque(team2);
+        }
 
     } else {
-
-        team1.ataque(team2);
-        console.log("Ataque a Team 2 !");
+        if(especial == 3){
+            console.log("ATAQUE ESPECIAL CON ARMA!");
+            team2.ataqueEspecial(team1);
+        }else{
+            console.log("Ataque a Team 1 !");
+            team2.ataque(team1);
+        }
     };
 
     console.log("Team 1 : " + team1.vida);
     console.log("Team 2 : " + team2.vida);
+
 }; 
 
 let inicio = () => {
@@ -120,5 +132,40 @@ let cambiaScreen = (faseAntes, faseDespues) => {
     despues.style.display = "block"; 
 };
 
+
 const resolveIn = delay => 
 new Promise(res => setTimeout(() => res(delay), delay)); 
+
+
+if (team1.vida < 0){
+    cambiaScreen('screen2', 'screen3');
+    let showMensaje1 = document.getElementById("mensajeScreen3");
+    showMensaje1.innerHTML = `El ganador del combate es ${team1}`;
+    let showWinner = document.getElementById("winner"); 
+    showWinner.innerHTML = `<div><img class="winner" src="img/${team1}".jpg></div>`;
+
+    resolveIn(3000).then(delay => {
+
+        cambiaScreen("screen3", "screenIntro");
+
+    }); 
+
+} else if (team2.vida < 0) {
+    cambiaScreen('screen2', 'screen3');
+    let showMensaje2 = document.getElementById("mensajeScreen3");
+    showMensaje2.innerHTML = `El ganador del combate es ${team2}`;
+    let showWinner = document.getElementById("winner");
+    showWinner.innerHTML = `<div><img class="winner" src="img/${team2}".jpg></div>`;
+
+    resolveIn(3000).then(delay => {
+
+        cambiaScreen("screen3", "screenIntro");
+
+    }); 
+
+} else {
+    console.log("Error!");
+
+};
+
+
