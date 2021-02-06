@@ -1,12 +1,12 @@
-//Características de los jugadores
-class Jugadores {
+//clases
+class Luchador {
 
-    constructor(nombre, vida, fuerza, defensa, suerte, arma){
+    constructor(nombre,vida,fuerza,defensa,suerte,arma){
         this.nombre = nombre;
         this.vida = vida;
-        this.fuerza = fuerza; 
+        this.fuerza = fuerza;
         this.defensa = defensa;
-        this.suerte = suerte;
+        this.suerte= suerte;
         this.arma = arma;
     };
 
@@ -14,135 +14,159 @@ class Jugadores {
         enemigo.vida -= (this.fuerza - enemigo.defensa) * (enemigo.arma - this.suerte);
     };
 
-    defensa(enemigo){
-        this.vida -= enemigo.fuerza + (enemigo.arma * 0.5)
-    };
-
     ataqueEspecial(enemigo){
         enemigo.vida -= (this.fuerza * 0.5 + this.arma) - (enemigo.defensa - this.arma);
     };
+
+    defensa(enemigo){
+        this.vida -= enemigo.fuerza + (enemigo.arma * 0.5);
+    };
 };
 
 
+//Instancias y variables globales
+//nombre,vida,fuerza,defensa,suerte
+let player1 = new Luchador("Django",250,56,29,4,8);
 
-let player1 = new Jugadores("Mia", 250, 58, 20, 5, 9); 
-let player2 = new Jugadores("Jules", 250, 60, 30, 6, 9); 
-let player3 = new Jugadores("Jackie", 250, 65, 25, 4, 9); 
-let player4 = new Jugadores("Hans", 250, 55, 28, 6, 7); 
-let player5 = new Jugadores("Mamba", 250, 60, 32, 5, 7); 
-let player6 = new Jugadores("Django", 250, 56, 29, 4, 8); 
+let player2 = new Luchador("Jackie",250,65,25,4,9);
 
+let player3 = new Luchador("Jules", 250,60,30,6,9);
 
+let player4 = new Luchador("Mamba",250,60,32,5,7);
+
+let player5 = new Luchador("Hans",250,55,28,6,7);
+
+let player6 = new Luchador("Mia",250,58,20,5,9);
+
+let p1 = "";
+
+let p2 = "";
+
+//traductor
 let allplayers = {
-    "Mia": player1, 
-    "Jules": player2, 
-    "Jackie": player3, 
-    "Hans": player4, 
-    "Mamba": player5, 
-    "Django": player6
+    "Django": player1,
+    "Jackie": player2,
+    "Jules": player3,
+    "Mamba": player4,
+    "Hans": player5,
+    "Mia": player6
 };
 
+//Funciones 
 
-let team1 = "";
-let team2 = "";
+let inicioGame = () => {
 
-
-
-//Funciones para el juego
-let atacar = () => {
-    let turno = Math.floor(Math.random() * 5);
-    let especial = Math.floor(Math.random () * 5); 
-
-    if (turno == 0){
-        if(especial == 3){
-            console.log("ATAQUE ESPECIAL CON ARMA!"); 
-            team1.ataqueEspecial(team2);
-        }else{
-            console.log("Ataque a Team 2 !");
-            team1.ataque(team2);
-        }
-
-    } else {
-        if(especial == 3){
-            console.log("ATAQUE ESPECIAL CON ARMA!");
-            team2.ataqueEspecial(team1);
-        }else{
-            console.log("Ataque a Team 1 !");
-            team2.ataque(team1);
-        }
-    };
-
-    console.log("Team 1 : " + team1.vida);
-    console.log("Team 2 : " + team2.vida);
-
-}; 
-
-let inicio = () => {
+    let vidaInicial = 200;
     
-    let vidaTotal = 200; 
+    player1.vida = vidaInicial;
+    player2.vida = vidaInicial;
 
-    team1 = vidaTotal;
-    team2 = vidaTotal; 
+    p1 = "";
+    p2 = "";
+
 
 };
 
-let seleccionJugador = (jugador) => {
+let cambiaScreen = (faseAhora,faseFutura) => {
+    let pantallaActual = document.getElementById(faseAhora);
 
-    if(team1 == ""){
-        team1 = jugador;
-    } else {
-        team2 = jugador; 
+    let pantallaDestino = document.getElementById(faseFutura);
 
-        document.getElementById(jugador).className = "jugadorElegido";
-        document.getElementById(jugador).onclick = ""; 
+    //aqui procedemos con el cambio
 
-        console.log("Personajes del team elegidos");
-        if (team1 != team2){
-            //Mensaje
-            let mensajeScreen1 = document.getElementById("mensajeScreen1");
+    pantallaActual.style.display = "none";
+    pantallaDestino.style.display = "block";
+};
+
+let selectPersonaje = (personaje) => {
+    if(p1 == ""){
+        p1 = allplayers[personaje];
+
+        document.getElementById(personaje).className = "avatar2";
+        document.getElementById(personaje).onclick = "";
+
+
+    }else{
+        p2 = allplayers[personaje];
+
+        document.getElementById(personaje).className = "avatar2";
+        document.getElementById(personaje).onclick = "";
+
+        //Enviar el mensaje 
+
+        let mensaje = document.getElementById("mensaje");
+
+        mensaje.innerHTML = `Has escogido al primer personaje que es ${p1.nombre} y al segundo que es ${p2.nombre}`;
+        
+        //Cargo los personajes en screen2
+
+        let showPlayer1 = document.getElementById("contrincante1");
+        let showPlayer2 = document.getElementById("contrincante2");
+
+        showPlayer1.innerHTML = `<div ><img class="estiloContrincante" src="img/${p1.nombre}.jpg"></div>`;
+        showPlayer2.innerHTML = `<div ><img class="estiloContrincante" src="img/${p2.nombre}.jpg"></div>`;
+
+        console.log(showPlayer1.innerHTML);
+
+        //Asignaría los luchadores... 
+
+        console.log(p1);
+        console.log(p2);
+
+        //Cambiar de pantalla porque ya tenemos a los personajes elegidos
+
+        resolveIn(1000).then(delay => {
+
+            cambiaScreen("screen1","screen2");
             
-            mensajeScreen1.innerHTML = `¡Empieza la batalla entre ${team1} y ${team2}!`;
-
-            //Pantalla con el enfrentamiento
-
-            let showTeam1 = document.getElementById("contrincante1");
-            let showTeam2 = document.getElementById("contrincante2");
-
-            //Insertamos por innerHTML el div con la imagen de los  contrincantes    del team correspondiente, "cargamos" la     fotoJugador a la screen2
-            showTeam1.innerHTML = `<div><img class="estiloContrincantes" src="img/${team1}".jpg></div>`; 
-            showTeam2.innerHTML = `<div><img class="estiloContrincantes" src="img/${team2}".jpg></div>`; 
-
-            //Cambio de pantalla con promise
-
-            resolveIn(3000).then(delay => {
-
-                cambiaScreen("screen1", "screen2");
-
-            }); 
-        };
+        });
     };
 };
 
-let cambiaScreen = (faseAntes, faseDespues) => {
+let atacar = () => {
+    //Funcion de ataque;
+    let turno = Math.floor(Math.random() * 2);
+    let especial = Math.floor(Math.random() * 5);
 
-    let antes = document.getElementById(faseAntes);
-    let despues = document.getElementById(faseDespues);
+    if(turno == 0){
+        if(especial == 3){
+            console.log("ATAQUE ESPECIAL");
+            p1.ataqueEspecial(p2);
+        }else{
 
-    antes.style.display = "none"; 
-    despues.style.display = "block"; 
+            p1.ataque(p2);
+        }
+    }else{
+        if(especial == 3){
+            console.log("ATAQUE ESPECIAL");
+            p2.ataqueEspecial(p1);
+        }else{
+            p2.ataque(p1);
+
+        }
+    };
+
+    console.log(p1.nombre + " - " + p1.vida);
+    console.log(p2.nombre + " - " + p2.vida);
+    
 };
 
+//funcion de delay...
 
-const resolveIn = delay => 
-new Promise(res => setTimeout(() => res(delay), delay)); 
+const resolveIn = delay =>
+new Promise(res => setTimeout(() => res(delay), delay));
+
+//Declaracion de inicio del juego
+console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
+console.log("Iniciamos el juego y la vida del player 2 es...." + player2.vida);
 
 
-if (team1.vida < 0){
+if (player1.vida <= 0){
     cambiaScreen('screen2', 'screen3');
     let showMensaje1 = document.getElementById("mensajeScreen3");
-    showMensaje1.innerHTML = `El ganador del combate es ${team1}`;
+    showMensaje1.innerHTML = `El ganador del combate es ${p1}`;
     let showWinner = document.getElementById("winner"); 
-    showWinner.innerHTML = `<div><img class="winner" src="img/${team1}".jpg></div>`;
+    showWinner.innerHTML = `<div><img class="winner" src="img/${p1}".jpg></div>`;
 
     resolveIn(3000).then(delay => {
 
@@ -150,12 +174,12 @@ if (team1.vida < 0){
 
     }); 
 
-} else if (team2.vida < 0) {
+} else if (player2.vida <= 0) {
     cambiaScreen('screen2', 'screen3');
     let showMensaje2 = document.getElementById("mensajeScreen3");
-    showMensaje2.innerHTML = `El ganador del combate es ${team2}`;
+    showMensaje2.innerHTML = `El ganador del combate es ${p2}`;
     let showWinner = document.getElementById("winner");
-    showWinner.innerHTML = `<div><img class="winner" src="img/${team2}".jpg></div>`;
+    showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".jpg></div>`;
 
     resolveIn(3000).then(delay => {
 
@@ -167,5 +191,4 @@ if (team1.vida < 0){
     console.log("Error!");
 
 };
-
 

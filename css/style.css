@@ -1,16 +1,105 @@
-body {
-    background: cadetblue;
+.general {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Screen 1 - selección de los personajes */
+.pantalla1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.characters {
+    display: flex;
+    flex-direction: row;
+    /* width: 40em; */
+}
+
+.info {
+    width: 12em;
+    height: 16em;
+    opacity: 0;
+}
+.avatar:hover + .info{
+    background-color: cyan;
+    opacity: 1;
+}
+
+.avatar {
+    width: 20em;
+    height: 20em;
+}
+
+.avatar2 {
+    width: 20em;
+    height: 20em;
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
+}
+
+#mensaje {
+    color: red;
+    font-size: 2em;
+    margin-top: 5em;
 
 }
 
-.general {
+/* Screen 2 - combate */
+.luchadoresCombate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.estiloContrincante {
+    width: 20em;
+    height: 20em;
+}
+
+.estiloPersonaje {      
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.screenIntro {
+.botonPegar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8em;
+}
+
+.attack {
+    height: 15em;
+    width: 15em;
+    background-color: blue;
+    margin: 1em;
+}
+
+.contadorVida {
+    width: 25em;
+    height: 12em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#contador {
+    width: 10em;
+    height: 10em;
+
+    background-color: coral;
+}
+
+/*Screen Intro */
+.pantallaIntro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,72 +120,7 @@ body {
     background-color: burlywood;
 }
 
-
-.jugadores {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.fotoJugador {
-    height: 14em;
-    width: 12em;
-/*
-    border: 0.3em solid black;
- */   
-}
-
-.jugador {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: 12em;
-    height: 30em;
-
-
-}
-.info {
-    width: 12em;
-    height: 16em;
-    opacity: 0;
-}
-.fotoJugador:hover + .info{
-    background-color: cyan;
-    opacity: 1;
-}
-
-/* Una vez elegidos los jugadores */
-
-.contenedorContrincantes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.estiloContrincantes {
-    height: 14em;
-    width: 12em;
-
-    border-radius: 1em;
-    border-color: black;
-}
-
-.jugadorElegido {
-    filter: grayscale(0.70);
-}
-
-.botonAtaque {
-    height: 3em;
-    width: 3em;
-
-    background-color: darkred;
-}
-
-/* Fin del combate */
+/*Screen 3 - Resolución de combate*/
 .contenedorVictoria {
     display: flex;
     flex-direction: row;
@@ -111,4 +135,3 @@ body {
     border-radius: 1em;
     border-color: black;
 }
-
