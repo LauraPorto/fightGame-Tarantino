@@ -64,7 +64,10 @@ let inicioGame = () => {
     p1 = "";
     p2 = "";
 
-
+    console.log("Inicio del juego");
+     /*
+    document.getElementById(personaje).className = "avatar";
+    */
 };
 
 let cambiaScreen = (faseAhora,faseFutura) => {
@@ -193,40 +196,6 @@ let derrota = () => {
         showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".jpg></div>`;
     };
 
-    inicioGame ();
-    document.getElementsByClassName("avatar2").className = "avatar";
-    document.getElementById(personaje).onclick = personaje;
-};
-
-/*
-if (player1.vida <= 0){
-    cambiaScreen('screen2', 'screen3');
-    let showMensaje1 = document.getElementById("mensajeScreen3");
-    showMensaje1.innerHTML = `El ganador del combate es ${p1}`;
-    let showWinner = document.getElementById("winner"); 
-    showWinner.innerHTML = `<div><img class="winner" src="img/${p1}".jpg></div>`;
-
-    resolveIn(3000).then(delay => {
-
-        cambiaScreen("screen3", "screenIntro");
-
-    }); 
-
-} else if (player2.vida <= 0) {
-    cambiaScreen('screen2', 'screen3');
-    let showMensaje2 = document.getElementById("mensajeScreen3");
-    showMensaje2.innerHTML = `El ganador del combate es ${p2}`;
-    let showWinner = document.getElementById("winner");
-    showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".jpg></div>`;
-
-    resolveIn(3000).then(delay => {
-
-        cambiaScreen("screen3", "screenIntro");
-
-    }); 
-
-} else {
-    console.log("Error!");
+    inicioGame();
 
 };
-*/
