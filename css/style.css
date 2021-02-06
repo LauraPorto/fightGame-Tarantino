@@ -75,8 +75,8 @@
 }
 
 .attack {
-    height: 15em;
-    width: 15em;
+    height: 5em;
+    width: 5em;
     background-color: blue;
     margin: 1em;
 }
@@ -92,8 +92,8 @@
 }
 
 #contador {
-    width: 10em;
-    height: 10em;
+    width: 8em;
+    height: 8em;
 
     background-color: coral;
 }
@@ -121,6 +121,8 @@
 }
 
 /*Screen 3 - Resolución de combate*/
+
+
 .contenedorVictoria {
     display: flex;
     flex-direction: row;
@@ -128,10 +130,17 @@
     align-items: center;
 }
 
-.winner {
+#winner {
     height: 14em;
     width: 12em;
 
     border-radius: 1em;
     border-color: black;
+}
+
+.volver {
+    width: 5em;
+    height: 5em;
+
+    background-color: brown;
 }

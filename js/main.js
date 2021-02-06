@@ -56,7 +56,7 @@ let allplayers = {
 
 let inicioGame = () => {
 
-    let vidaInicial = 200;
+    let vidaInicial = 250;
     
     player1.vida = vidaInicial;
     player2.vida = vidaInicial;
@@ -146,10 +146,21 @@ let atacar = () => {
         }
     };
 
-    console.log(p1.nombre + " - " + p1.vida);
-    console.log(p2.nombre + " - " + p2.vida);
-    
+
+        if(p1.vida <= 0 || p2.vida < 0){
+            derrota ();
+        }else {
+            console.log("Seguimos con vida para siempre O K");
+        };
+
+
+    let showLife1 = document.getElementById("contador1");
+    let showLife2 = document.getElementById("contador2");
+    showLife1.innerHTML = `¡ ${p1.nombre}  =  ${p1.vida} !`; 
+    showLife2.innerHTML = `¡ ${p2.nombre}  =  ${p2.vida} !`; 
+
 };
+
 
 //funcion de delay...
 
@@ -161,6 +172,33 @@ console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
 console.log("Iniciamos el juego y la vida del player 2 es...." + player2.vida);
 
 
+
+let derrota = () => {
+    if (p1.vida < 0) {
+   
+        cambiaScreen("screen2","screen3");
+            
+        let showMensaje1 = document.getElementById("mensajeScreen3");
+        showMensaje1.innerHTML = `El ganador del combate es ${p1}`;
+        let showWinner = document.getElementById("winner");
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p1}".jpg></div>`;
+
+    }else if (p2.vida < 0){
+
+        cambiaScreen("screen2","screen3");
+
+        let showMensaje2 = document.getElementById("mensajeScreen3"); 
+        showMensaje2.innerHTML = `El ganador del combate es ${p2}`;
+        let showWinner = document.getElementById("winner");
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".jpg></div>`;
+    };
+
+    inicioGame ();
+    document.getElementsByClassName("avatar2").className = "avatar";
+    document.getElementById(personaje).onclick = personaje;
+};
+
+/*
 if (player1.vida <= 0){
     cambiaScreen('screen2', 'screen3');
     let showMensaje1 = document.getElementById("mensajeScreen3");
@@ -191,4 +229,4 @@ if (player1.vida <= 0){
     console.log("Error!");
 
 };
-
+*/
