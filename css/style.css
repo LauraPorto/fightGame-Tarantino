@@ -1,3 +1,7 @@
+* {
+    margin: 0em;
+    padding: 0em;
+}
 .general {
     display: flex;
     align-items: center;
@@ -11,6 +15,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    height: 45em;
 
     background-image: url(/img/fondo2.jpg);
     background-position: bottom;
@@ -55,10 +61,13 @@
 
 /* Screen 2 - combate */
 .pantalla2 {
+    height: 45em;
+    width: 100%;
 
     background-image: url(/img/fondo1.jpg);
     background-position: center;
     background-size: cover;
+    margin-bottom: 0em;
 }
 
 
@@ -121,6 +130,15 @@
     background-color: coral;
 }
 
+#contador1 {
+    font-size: 2em;
+    width: 10em;
+}
+#contador2 {
+    font-size: 2em;
+    width: 10em;
+}
+
 /*Screen Intro */
 .pantallaIntro {
     display: flex;
@@ -129,7 +147,8 @@
     align-items: center;
 
     width: 100%;
-    height: 100%;
+    height: 45em;
+    margin-bottom: 0em;
     
     background-image: url(/img/fondo3.jpg);
     background-position: center;
@@ -143,8 +162,8 @@
     align-items: center;
 }
 .tarantino {
-    width: 30em;
-    height: 30em;
+    width: 20em;
+    height: 20em;
 }
 .introJuego2 {
     display: flex;
@@ -153,8 +172,12 @@
     align-items: center;
 }
 .start {
-    width: 10em;
-    height: 10em;
+    width: 13em;
+    height: 7em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: gray;
 }
@@ -168,7 +191,7 @@
 
     background-color: #FEE600;
    
-    height: 100%;
+    height: 45em;
     width: 100%;
 }
 
@@ -180,21 +203,37 @@
 }
 
 #winner {
-    height: 14em;
+    height: 15em;
     width: 12em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     border-radius: 1em;
     border-color: black;
 }
 
 .volver {
-    width: 5em;
-    height: 5em;
+    width: 4em;
+    height: 4em;
+
+    margin: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background-color: brown;
 }
 
 .creditos {
-    height: 6em;
-    width: 10em;
+
+    height: 10em;
+    width: 15em;
+}
+
+#mensajeScreen3 {
+    font-size: 5em;
 }

@@ -97,7 +97,7 @@ let selectPersonaje = (personaje) => {
 
         let mensaje = document.getElementById("mensaje");
 
-        mensaje.innerHTML = `Has escogido al primer personaje que es ${p1.nombre} y al segundo que es ${p2.nombre}`;
+        mensaje.innerHTML = `Has escogido para el combate a ${p1.nombre} y a ${p2.nombre}`;
         
 
         let showPlayer1 = document.getElementById("contrincante1");
@@ -175,16 +175,16 @@ let derrota = () => {
         let showMensaje1 = document.getElementById("mensajeScreen3");
         showMensaje1.innerHTML = `El ganador del combate es ${player1.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}".png></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}.png"></div>`;
 
     }else if (p2.vida < 0){
 
         cambiaScreen("screen2","screen3");
 
         let showMensaje2 = document.getElementById("mensajeScreen3"); 
-        showMensaje2.innerHTML = `El ganador del combate es ${player2.nombre}`;
+        showMensaje2.innerHTML = `El ganador del combate es ${p2.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}".png></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}.png"></div>`;
     };
 
     inicioGame();
