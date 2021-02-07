@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 /* Screen 1 - selección de los personajes */
@@ -11,14 +12,16 @@
     align-items: center;
     justify-content: center;
 
-    background-color: rgb(46, 5, 5);
+    background-image: url(/img/fondo2.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .characters {
     display: flex;
     flex-direction: row;
-    /* width: 40em; */
-    background-color: rgb(46, 5, 5);
+
 }
 
 .info {
@@ -27,17 +30,15 @@
     opacity: 0;
 }
 .avatar:hover + .info{
-    background-color: rgba(245, 21, 21, 0.336);
-    opacity: 1;
+    background-color: #471B12;
+    opacity: 1
 }
 
 .avatar {
-    width: 20em;
-    height: 20em;
+    width: 15em;
+    height: 15em;
 
-    background-color: rgb(46, 5, 5);
 }
-
 .avatar2 {
     width: 20em;
     height: 20em;
@@ -53,6 +54,14 @@
 }
 
 /* Screen 2 - combate */
+.pantalla2 {
+
+    background-image: url(/img/fondo1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
 .luchadoresCombate {
     display: flex;
     flex-direction: column;
@@ -119,7 +128,12 @@
     justify-content: center;
     align-items: center;
 
-    background-color: darkred;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(/img/fondo3.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .introJuego {
@@ -152,12 +166,15 @@
     align-items: center;
     justify-content: center;
 
-    background-color: rgb(46, 5, 5);;
+    background-color: #FEE600;
+   
+    height: 100%;
+    width: 100%;
 }
 
 .contenedorVictoria {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -175,4 +192,9 @@
     height: 5em;
 
     background-color: brown;
+}
+
+.creditos {
+    height: 6em;
+    width: 10em;
 }

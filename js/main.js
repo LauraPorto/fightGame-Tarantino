@@ -175,7 +175,7 @@ let derrota = () => {
         let showMensaje1 = document.getElementById("mensajeScreen3");
         showMensaje1.innerHTML = `El ganador del combate es ${player1.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p1}".png></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}".png></div>`;
 
     }else if (p2.vida < 0){
 
@@ -184,7 +184,7 @@ let derrota = () => {
         let showMensaje2 = document.getElementById("mensajeScreen3"); 
         showMensaje2.innerHTML = `El ganador del combate es ${player2.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".png></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}".png></div>`;
     };
 
     inicioGame();
