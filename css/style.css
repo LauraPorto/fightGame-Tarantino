@@ -170,7 +170,7 @@
     align-items: center;
 }
 .start {
-    width: 13em;
+    width: 12em;
     height: 7em;
 
     display: flex;
@@ -191,6 +191,7 @@
    
     height: 45em;
     width: 100%;
+
 }
 
 .contenedorVictoria {
