@@ -10,12 +10,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    background-color: rgb(46, 5, 5);
 }
 
 .characters {
     display: flex;
     flex-direction: row;
     /* width: 40em; */
+    background-color: rgb(46, 5, 5);
 }
 
 .info {
@@ -31,6 +34,8 @@
 .avatar {
     width: 20em;
     height: 20em;
+
+    background-color: rgb(46, 5, 5);
 }
 
 .avatar2 {
@@ -104,6 +109,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: darkred;
 }
 
 .introJuego {
@@ -120,6 +127,10 @@
     background-color: burlywood;
 }
 
+.tarantino {
+    width: 20em;
+    height: 20em;
+}
 /*Screen 3 - Resolución de combate*/
 
 

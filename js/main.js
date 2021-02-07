@@ -106,8 +106,8 @@ let selectPersonaje = (personaje) => {
         let showPlayer1 = document.getElementById("contrincante1");
         let showPlayer2 = document.getElementById("contrincante2");
 
-        showPlayer1.innerHTML = `<div ><img class="estiloContrincante" src="img/${p1.nombre}.jpg"></div>`;
-        showPlayer2.innerHTML = `<div ><img class="estiloContrincante" src="img/${p2.nombre}.jpg"></div>`;
+        showPlayer1.innerHTML = `<div ><img class="estiloContrincante" src="img/${p1.nombre}.png"></div>`;
+        showPlayer2.innerHTML = `<div ><img class="estiloContrincante" src="img/${p2.nombre}.png"></div>`;
 
         console.log(showPlayer1.innerHTML);
 
