@@ -93,12 +93,6 @@ let selectPersonaje = (personaje) => {
         document.getElementById(personaje).className = "avatar2";
         document.getElementById(personaje).onclick = "";
 
-        //Enviar el mensaje 
-
-        let mensaje = document.getElementById("mensaje");
-
-        mensaje.innerHTML = `Has escogido para el combate a ${p1.nombre} y a ${p2.nombre}`;
-        
 
         let showPlayer1 = document.getElementById("contrincante1");
         let showPlayer2 = document.getElementById("contrincante2");

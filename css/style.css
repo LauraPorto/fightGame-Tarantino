@@ -31,12 +31,12 @@
 }
 
 .info {
-    width: 12em;
-    height: 12em;
+    width: 15em;
+    height: 10em;
     opacity: 0;
 }
 .avatar:hover + .info{
-    background-color: #471B12;
+    background-color: #847B17;
     opacity: 1
 }
 
@@ -52,12 +52,6 @@
     filter: grayscale(100%);
 }
 
-#mensaje {
-    color: black;
-    font-size: 3em;
-    margin-top: 5em;
-
-}
 
 /* Screen 2 - combate */
 .pantalla2 {
@@ -131,12 +125,14 @@
 }
 
 #contador1 {
-    font-size: 2em;
-    width: 10em;
+    font-size: 1.5em;
+    width: 30em;
+  
 }
 #contador2 {
-    font-size: 2em;
-    width: 10em;
+    font-size: 1.5em;
+    width: 30em;
+
 }
 
 /*Screen Intro */
@@ -164,6 +160,8 @@
 .tarantino {
     width: 20em;
     height: 20em;
+
+    margin-bottom: 2em;
 }
 .introJuego2 {
     display: flex;
@@ -179,7 +177,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: gray;
+    background-color: #AD481A;
 }
 
 /*Screen 3 - Resolución de combate*/
@@ -200,38 +198,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 #winner {
-    height: 15em;
-    width: 12em;
+    height: 10em;
+    width: 10em;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    border-radius: 1em;
-    border-color: black;
+    margin: 2em
 }
 
 .volver {
-    width: 4em;
-    height: 4em;
+    width: 5em;
+    height: 3em;
 
-    margin: 2em;
+    margin-top: 2em;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: brown;
+    background-color: #AD481A;
 }
 
 .creditos {
 
     height: 10em;
     width: 15em;
+
+    margin: 2em;
 }
 
 #mensajeScreen3 {
