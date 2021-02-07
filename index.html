@@ -13,9 +13,9 @@
     <div class="general">
 
         <div id="screenIntro" class="pantallaIntro" style="display: block;">
-            <div class="introJuego"><img src="img/GafasTarantino.png"></div>
+            <div class="introJuego"><img src="img/GafasTarantino.png" class="tarantino"></div>
             <div class="introJuego2">
-                <div onclick="cambiaScreen('screenIntro', 'screen1')" class="start"></div>
+                <div onclick="cambiaScreen('screenIntro', 'screen1')" class="start"><p><b>Pulsa para empezar</b></p></div>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
                 <div onclick="selectPersonaje('Django')" id="Django"><img class="avatar" src="img/Django.png">
                     <div class="info">
                         <ul>
-                            <p>Django</p>
+                            <p><h1>Django Unchained</h1></p>
                             <li>Fuerza : 56</li>
                             <li>Defensa : 29</li>
                             <li>Suerte : 4</li>
@@ -35,7 +35,7 @@
                 <div onclick="selectPersonaje('Jackie')" id="Jackie"><img class="avatar" src="img/Jackie.png">
                     <div class="info">
                         <ul>
-                            <p>Jackie</p>
+                            <p><h1>Jackie Brown</h1></p>
                             <li>Fuerza : 65</li>
                             <li>Defensa : 25</li>
                             <li>Suerte : 4</li>
@@ -46,7 +46,7 @@
                 <div onclick="selectPersonaje('Jules')" id="Jules"><img class="avatar" src="img/Jules.png">
                     <div class="info">
                         <ul>
-                            <p>Jules</p>
+                            <p><h1>Jules Winnfield</h1></p>
                             <li>Fuerza : 60</li>
                             <li>Defensa : 30</li>
                             <li>Suerte : 6</li>
@@ -57,7 +57,7 @@
                 <div onclick="selectPersonaje('Mamba')" id="Mamba"><img class="avatar" src="img/Mamba.png">
                     <div class="info">
                         <ul>
-                            <p>Mamba</p>
+                            <p><h1>Black Mamba</h1></p>
                             <li>Fuerza : 60</li>
                             <li>Defensa : 32</li>
                             <li>Suerte : 5</li>
@@ -68,7 +68,7 @@
                 <div onclick="selectPersonaje('Hans')" id="Hans"><img class="avatar" src="img/Hans.png">
                     <div class="info">
                         <ul>
-                            <p>Hans</p>
+                            <p><h1>Hans Landa</h1></p>
                             <li>Fuerza : 55</li>
                             <li>Defensa : 28</li>
                             <li>Suerte : 6</li>
@@ -79,7 +79,7 @@
                 <div onclick="selectPersonaje('Mia')" id="Mia"><img class="avatar" src="img/Mia.png">
                     <div class="info">
                         <ul>
-                            <p>Mia</p>
+                            <p><h1>Mia Wallace</h1></p>
                             <li>Fuerza : 58</li>
                             <li>Defensa : 20</li>
                             <li>Suerte : 5</li>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="botonPegar">
-                <div id="strike" class="attack" onclick="atacar()"></div>    
+                <div id="strike" class="attack" onclick="atacar()"><img src="img/puño.png" class="puño"></div>    
             </div>
         </div>   
         

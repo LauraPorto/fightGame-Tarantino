@@ -75,8 +75,6 @@ let cambiaScreen = (faseAhora,faseFutura) => {
 
     let pantallaDestino = document.getElementById(faseFutura);
 
-    //aqui procedemos con el cambio
-
     pantallaActual.style.display = "none";
     pantallaDestino.style.display = "block";
 };
@@ -101,7 +99,6 @@ let selectPersonaje = (personaje) => {
 
         mensaje.innerHTML = `Has escogido al primer personaje que es ${p1.nombre} y al segundo que es ${p2.nombre}`;
         
-        //Cargo los personajes en screen2
 
         let showPlayer1 = document.getElementById("contrincante1");
         let showPlayer2 = document.getElementById("contrincante2");
@@ -111,12 +108,8 @@ let selectPersonaje = (personaje) => {
 
         console.log(showPlayer1.innerHTML);
 
-        //Asignaría los luchadores... 
-
         console.log(p1);
         console.log(p2);
-
-        //Cambiar de pantalla porque ya tenemos a los personajes elegidos
 
         resolveIn(1000).then(delay => {
 
@@ -127,7 +120,7 @@ let selectPersonaje = (personaje) => {
 };
 
 let atacar = () => {
-    //Funcion de ataque;
+
     let turno = Math.floor(Math.random() * 2);
     let especial = Math.floor(Math.random() * 5);
 
@@ -149,7 +142,6 @@ let atacar = () => {
         }
     };
 
-
         if(p1.vida <= 0 || p2.vida < 0){
             derrota ();
         }else {
@@ -170,7 +162,6 @@ let atacar = () => {
 const resolveIn = delay =>
 new Promise(res => setTimeout(() => res(delay), delay));
 
-//Declaracion de inicio del juego
 console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
 console.log("Iniciamos el juego y la vida del player 2 es...." + player2.vida);
 
@@ -182,18 +173,18 @@ let derrota = () => {
         cambiaScreen("screen2","screen3");
             
         let showMensaje1 = document.getElementById("mensajeScreen3");
-        showMensaje1.innerHTML = `El ganador del combate es ${p1}`;
+        showMensaje1.innerHTML = `El ganador del combate es ${player1.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p1}".jpg></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p1}".png></div>`;
 
     }else if (p2.vida < 0){
 
         cambiaScreen("screen2","screen3");
 
         let showMensaje2 = document.getElementById("mensajeScreen3"); 
-        showMensaje2.innerHTML = `El ganador del combate es ${p2}`;
+        showMensaje2.innerHTML = `El ganador del combate es ${player2.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".jpg></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p2}".png></div>`;
     };
 
     inicioGame();
