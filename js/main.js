@@ -97,8 +97,8 @@ let selectPersonaje = (personaje) => {
         let showPlayer1 = document.getElementById("contrincante1");
         let showPlayer2 = document.getElementById("contrincante2");
 
-        showPlayer1.innerHTML = `<div ><img class="estiloContrincante" src="img/${p1.nombre}.png"></div>`;
-        showPlayer2.innerHTML = `<div ><img class="estiloContrincante" src="img/${p2.nombre}.png"></div>`;
+        showPlayer1.innerHTML = `<div ><img class="estilocontrincante" src="img/${p1.nombre}.png"></div>`;
+        showPlayer2.innerHTML = `<div ><img class="estilocontrincante" src="img/${p2.nombre}.png"></div>`;
 
         console.log(showPlayer1.innerHTML);
 
@@ -166,7 +166,7 @@ let derrota = () => {
    
         cambiaScreen("screen2","screen3");
             
-        let showMensaje1 = document.getElementById("mensajeScreen3");
+        let showMensaje1 = document.getElementById("mensajescreen3");
         showMensaje1.innerHTML = `El ganador del combate es ${player1.nombre}`;
         let showWinner = document.getElementById("winner");
         showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}.png"></div>`;
@@ -175,7 +175,7 @@ let derrota = () => {
 
         cambiaScreen("screen2","screen3");
 
-        let showMensaje2 = document.getElementById("mensajeScreen3"); 
+        let showMensaje2 = document.getElementById("mensajescreen3"); 
         showMensaje2.innerHTML = `El ganador del combate es ${p2.nombre}`;
         let showWinner = document.getElementById("winner");
         showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}.png"></div>`;
