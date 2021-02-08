@@ -26,17 +26,17 @@ class Luchador {
 
 //Instancias y variables globales
 //nombre,vida,fuerza,defensa,suerte
-let player1 = new Luchador("Django",250,56,29,4,8);
+let player1 = new Luchador("django",250,56,29,4,8);
 
-let player2 = new Luchador("Jackie",250,65,25,4,9);
+let player2 = new Luchador("jackie",250,65,25,4,9);
 
-let player3 = new Luchador("Jules", 250,60,30,6,9);
+let player3 = new Luchador("jules", 250,60,30,6,9);
 
-let player4 = new Luchador("Mamba",250,60,32,5,7);
+let player4 = new Luchador("mamba",250,60,32,5,7);
 
-let player5 = new Luchador("Hans",250,55,28,6,7);
+let player5 = new Luchador("hans",250,55,28,6,7);
 
-let player6 = new Luchador("Mia",250,58,20,5,9);
+let player6 = new Luchador("mia",250,58,20,5,9);
 
 let p1 = "";
 
@@ -44,12 +44,12 @@ let p2 = "";
 
 //traductor
 let allplayers = {
-    "Django": player1,
-    "Jackie": player2,
-    "Jules": player3,
-    "Mamba": player4,
-    "Hans": player5,
-    "Mia": player6
+    "django": player1,
+    "jackie": player2,
+    "jules": player3,
+    "mamba": player4,
+    "hans": player5,
+    "mia": player6
 };
 
 //Funciones 
