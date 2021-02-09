@@ -61,8 +61,8 @@ let inicioGame = () => {
     p1.vida = vidaInicial;
     p2.vida = vidaInicial;
 
-    p1 = "";
-    p2 = "";
+    p1 = null;
+    p2 = null;
 
     console.log("Inicio del juego");
    
@@ -78,18 +78,18 @@ let cambiaScreen = (faseAhora,faseFutura) => {
 };
 
 let selectPersonaje = (personaje) => {
-    if(p1 == ""){
+    if(p1 == null){
         p1 = allplayers[personaje];
 
         document.getElementById(personaje).className = "avatar2";
-        document.getElementById(personaje).onclick = "";
+        document.getElementById(personaje).onclick = null;
 
 
     }else{
         p2 = allplayers[personaje];
 
         document.getElementById(personaje).className = "avatar2";
-        document.getElementById(personaje).onclick = "";
+        document.getElementById(personaje).onclick = null;
 
 
         let showPlayer1 = document.getElementById("contrincante1");
@@ -108,6 +108,35 @@ let selectPersonaje = (personaje) => {
             cambiaScreen("screen1", "screen2");
         });
     };
+};
+
+let derrota = () => {
+    if (p1.vida < 0) {
+   
+        cambiaScreen("screen2","screen3");
+            
+        let showMensaje1 = document.getElementById("mensajeScreen3");
+        showMensaje1.innerHTML = `El ganador del combate es ${p1.nombre}`;
+        let showWinner = document.getElementById("winner");
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}.png"></div>`;
+
+    }else if (p2.vida < 0){
+
+        cambiaScreen("screen2","screen3");
+
+        let showMensaje2 = document.getElementById("mensajeScreen3"); 
+        showMensaje2.innerHTML = `El ganador del combate es ${p2.nombre}`;
+        let showWinner = document.getElementById("winner");
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}.png"></div>`;
+    };
+
+    let showLife1 = document.getElementById("contador1");
+    let showLife2 = document.getElementById("contador2");
+    showLife1.innerHTML = `¡ ${p1.nombre}  -  ${p1.vida} !`; 
+    showLife2.innerHTML = `¡ ${p2.nombre}  -  ${p2.vida} !`; 
+
+    inicioGame();
+
 };
 
 let atacar = () => {
@@ -140,10 +169,7 @@ let atacar = () => {
         };
 
 
-    let showLife1 = document.getElementById("contador1");
-    let showLife2 = document.getElementById("contador2");
-    showLife1.innerHTML = `¡ ${p1.nombre}  -  ${p1.vida} !`; 
-    showLife2.innerHTML = `¡ ${p2.nombre}  -  ${p2.vida} !`; 
+    
 
 };
 
@@ -151,32 +177,11 @@ let atacar = () => {
 const resolveIn = delay =>
 new Promise(res => setTimeout(() => res(delay), delay));
 
+/*
 console.log("Iniciamos el juego y la vida del player 1 es...." + p1.vida);
 console.log("Iniciamos el juego y la vida del player 2 es...." + p2.vida);
 
+*/
 
 
-let derrota = () => {
-    if (p1.vida < 0) {
-   
-        cambiaScreen("screen2","screen3");
-            
-        let showMensaje1 = document.getElementById("mensajeScreen3");
-        showMensaje1.innerHTML = `El ganador del combate es ${p1.nombre}`;
-        let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}.png"></div>`;
-
-    }else if (p2.vida < 0){
-
-        cambiaScreen("screen2","screen3");
-
-        let showMensaje2 = document.getElementById("mensajeScreen3"); 
-        showMensaje2.innerHTML = `El ganador del combate es ${p2.nombre}`;
-        let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}.png"></div>`;
-    };
-
-    inicioGame();
-
-};
 
