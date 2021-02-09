@@ -38,9 +38,9 @@ let player5 = new Luchador("hans",250,55,28,6,7);
 
 let player6 = new Luchador("mia",250,58,20,5,9);
 
-let p1 = "";
+let p1 = null;
 
-let p2 = "";
+let p2 = null;
 
 //traductor
 let allplayers = {
@@ -58,8 +58,8 @@ let inicioGame = () => {
 
     let vidaInicial = 250;
     
-    player1.vida = vidaInicial;
-    player2.vida = vidaInicial;
+    p1.vida = vidaInicial;
+    p2.vida = vidaInicial;
 
     p1 = "";
     p2 = "";
@@ -78,15 +78,15 @@ let cambiaScreen = (faseAhora,faseFutura) => {
 };
 
 let selectPersonaje = (personaje) => {
-    if(player1 == ""){
-        player1 = allplayers[personaje];
+    if(p1 == ""){
+        p1 = allplayers[personaje];
 
         document.getElementById(personaje).className = "avatar2";
         document.getElementById(personaje).onclick = "";
 
 
     }else{
-        player2 = allplayers[personaje];
+        p2 = allplayers[personaje];
 
         document.getElementById(personaje).className = "avatar2";
         document.getElementById(personaje).onclick = "";
@@ -118,22 +118,22 @@ let atacar = () => {
     if(turno == 0){
         if(especial == 3){
             console.log("ATAQUE ESPECIAL");
-            player1.ataqueEspecial(player2);
+            p1.ataqueEspecial(p2);
         }else{
 
-            player1.ataque(player2);
+            p1.ataque(p2);
         }
     }else{
         if(especial == 3){
             console.log("ATAQUE ESPECIAL");
-            player2.ataqueEspecial(player1);
+            p2.ataqueEspecial(p1);
         }else{
-            player2.ataque(player1);
+            p2.ataque(p1);
 
         }
     };
 
-        if(player1.vida <= 0 || player2.vida < 0){
+        if(p1.vida <= 0 || p2.vida < 0){
             derrota ();
         }else {
             console.log("Seguimos con vida para siempre O K");
@@ -142,8 +142,8 @@ let atacar = () => {
 
     let showLife1 = document.getElementById("contador1");
     let showLife2 = document.getElementById("contador2");
-    showLife1.innerHTML = `¡ ${player1.nombre}  -  ${player1.vida} !`; 
-    showLife2.innerHTML = `¡ ${player2.nombre}  -  ${player2.vida} !`; 
+    showLife1.innerHTML = `¡ ${p1.nombre}  -  ${p1.vida} !`; 
+    showLife2.innerHTML = `¡ ${p2.nombre}  -  ${p2.vida} !`; 
 
 };
 
@@ -151,20 +151,20 @@ let atacar = () => {
 const resolveIn = delay =>
 new Promise(res => setTimeout(() => res(delay), delay));
 
-console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
-console.log("Iniciamos el juego y la vida del player 2 es...." + player2.vida);
+console.log("Iniciamos el juego y la vida del player 1 es...." + p1.vida);
+console.log("Iniciamos el juego y la vida del player 2 es...." + p2.vida);
 
 
 
 let derrota = () => {
-    if (player1.vida < 0) {
+    if (p1.vida < 0) {
    
         cambiaScreen("screen2","screen3");
             
         let showMensaje1 = document.getElementById("mensajeScreen3");
-        showMensaje1.innerHTML = `El ganador del combate es ${player1.nombre}`;
+        showMensaje1.innerHTML = `El ganador del combate es ${p1.nombre}`;
         let showWinner = document.getElementById("winner");
-        showWinner.innerHTML = `<div><img class="winner" src="img/${player1.nombre}.png"></div>`;
+        showWinner.innerHTML = `<div><img class="winner" src="img/${p1.nombre}.png"></div>`;
 
     }else if (p2.vida < 0){
 
