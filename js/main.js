@@ -130,10 +130,6 @@ let derrota = () => {
         showWinner.innerHTML = `<div><img class="winner" src="img/${p2.nombre}.png"></div>`;
     };
 
-    let showLife1 = document.getElementById("contador1");
-    let showLife2 = document.getElementById("contador2");
-    showLife1.innerHTML = `¡ ${p1.nombre}  -  ${p1.vida} !`; 
-    showLife2.innerHTML = `¡ ${p2.nombre}  -  ${p2.vida} !`; 
 
     inicioGame();
 
@@ -162,6 +158,11 @@ let atacar = () => {
         }
     };
 
+    let showLife1 = document.getElementById("contador1");
+    let showLife2 = document.getElementById("contador2");
+    showLife1.innerHTML = `¡ ${p1.nombre}  -  ${p1.vida} !`; 
+    showLife2.innerHTML = `¡ ${p2.nombre}  -  ${p2.vida} !`; 
+    
         if(p1.vida <= 0 || p2.vida < 0){
             derrota ();
         }else {
@@ -169,19 +170,9 @@ let atacar = () => {
         };
 
 
-    
-
 };
 
 
 const resolveIn = delay =>
 new Promise(res => setTimeout(() => res(delay), delay));
-
-/*
-console.log("Iniciamos el juego y la vida del player 1 es...." + p1.vida);
-console.log("Iniciamos el juego y la vida del player 2 es...." + p2.vida);
-
-*/
-
-
 
