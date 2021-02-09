@@ -9,7 +9,7 @@ El juego consta de 4 pantallas diferentes. La primera pantalla de inicio da comi
 Para poder jugar se necesita únicamente un navegador Google Chrome y seguir los pasos anteriormente indicados. 
 
 ## Acceso :dart:
-[Juego de Lucha Tarantino](https://lauraporto.github.io/juegoLucha-/) 
+[Juego de Lucha Tarantino](https://lauraporto.github.io/juegoLucha/) 
 
 ## Herramientas y Tecnologías :computer:
 Para llevar a cabo este proyecto se han usado diferentes tecnologías y lenguajes como HTML5, CSS3 y JavaScript, además de Git y GitHub. 
