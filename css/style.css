@@ -18,7 +18,7 @@
 
     height: 45em;
 
-    background-image: url(/img/fondo2.jpg);
+    background-image: url(../img/fondop3.jpg);
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
@@ -58,7 +58,7 @@
     height: 45em;
     width: 100%;
 
-    background-image: url(/img/fondo1.jpg);
+    background-image: url(../img/fondop2.jpg);
     background-position: center;
     background-size: cover;
     margin-bottom: 0em;
@@ -146,7 +146,7 @@
     height: 45em;
     margin-bottom: 0em;
     
-    background-image: url(/img/fondo3.jpg);
+    background-image: url(../img/fondop1.jpg);
     background-position: center;
     background-size: cover;
 }
