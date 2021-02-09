@@ -44,6 +44,8 @@
     width: 15em;
     height: 15em;
 
+    cursor: pointer;
+
 }
 .avatar2 {
     width: 20em;

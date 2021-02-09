@@ -44,12 +44,12 @@ let p2 = "";
 
 //traductor
 let allplayers = {
-    "Django": player1,
-    "Jackie": player2,
-    "Jules": player3,
-    "Mamba": player4,
-    "Hans": player5,
-    "Mia": player6
+    "django": player1,
+    "jackie": player2,
+    "jules": player3,
+    "mamba": player4,
+    "hans": player5,
+    "mia": player6
 };
 
 //Funciones 
